@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded; // Indica se o jogador está no chão
     private bool isJumping; // Impede múltiplos pulos no ar
 
+    public bool IsGrounded => isGrounded; // Propriedade pública somente leitura para isGrounded
+    public bool IsDead => isDead;         // Propriedade pública somente leitura para isDead
+
+
     [Header("Componentes")]
     public Rigidbody2D rb; // Referência ao Rigidbody2D
     public LayerMask groundLayer; // Layer que representa o chão
