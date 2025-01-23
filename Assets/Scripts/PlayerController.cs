@@ -53,7 +53,8 @@ public class PlayerController : MonoBehaviour
         // Ajusta a direção do sprite baseado na entrada horizontal
         if (horizontalInput != 0)
         {
-            transform.localScale = new Vector3(Mathf.Sign(horizontalInput), 1, 1);
+            Debug.Log("HInput x: " + horizontalInput);
+            transform.localScale = new Vector3(Mathf.Sign(horizontalInput) * transform.localScale.x, transform.localScale.y, 1);
         }
     }
 
@@ -65,7 +66,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // Aplica força no eixo Y
             isJumping = true; // Marca como "no ar" para evitar múltiplos pulos
-            Debug.Log("Pulo iniciado");
         }
 
 
@@ -79,10 +79,6 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Jump", isJumping && !isGrounded); // Animação de pulo
         animator.SetBool("Walk", Mathf.Abs(horizontalInput) > 0 && isGrounded); // Animação de andar
         animator.SetBool("idle", isGrounded && horizontalInput == 0); // Animação de idle (parado)
-
-        // Logando as animações para verificação
-        Debug.Log("isGrounded: " + isGrounded);
-        Debug.Log("isJumping: " + isJumping);
     }
 
     // Método chamado para "matar" o jogador
@@ -110,7 +106,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Danger"))
         {
             Die();
-            Debug.Log("Jogador morreu ao colidir com um objeto perigoso!");
         }
     }
 
@@ -125,7 +120,6 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
             isJumping = false;
-            Debug.Log("Entrou no chão");
         }
 
 
@@ -138,7 +132,6 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
             isJumping = false;
-            Debug.Log("Entrou no chão");
         }
 
 
@@ -151,8 +144,6 @@ public class PlayerController : MonoBehaviour
         || collision.gameObject.CompareTag("Player")) // Verifica se o objeto está no Layer do chão
         {
             isGrounded = false;
-
-            Debug.Log("Saiu do chão");
         }
     }
 }

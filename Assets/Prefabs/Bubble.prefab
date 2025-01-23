@@ -205,6 +205,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPrefab: {fileID: 3064343157323199646, guid: 1b239a5160aa0304cbf02fc6eab79bfd, type: 3}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  platformSpawnRadius: 0.5
 --- !u!70 &5946476086480082821
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 1642332431778838081}
   - component: {fileID: 8257573601464586186}
   - component: {fileID: 7393820173095483177}
+  - component: {fileID: 8236418753999631829}
   - component: {fileID: 4885126797341176209}
   m_Layer: 0
   m_Name: Gum
@@ -237,6 +238,23 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &8236418753999631829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5099192344479200449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c0a1ecf1259d594dad7008e2d898914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformPrefab: {fileID: 3064343157323199646, guid: 894e22ec71a2f024cb23ab4073094d8e, type: 3}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  platformSpawnRadius: 0.5
 --- !u!70 &4885126797341176209
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
