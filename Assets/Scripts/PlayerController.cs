@@ -79,7 +79,6 @@ public class PlayerController : MonoBehaviour
         // Logando as animações para verificação
         Debug.Log("isGrounded: " + isGrounded);
         Debug.Log("isJumping: " + isJumping);
-        Debug.Log("horizontalInput: " + horizontalInput);
     }
 
     // Método chamado para "matar" o jogador
@@ -100,10 +99,25 @@ public class PlayerController : MonoBehaviour
         this.enabled = false;
     }
 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Verifica se o objeto colidido tem a tag "Danger"
+        if (collision.gameObject.CompareTag("Danger"))
+        {
+            Die();
+            Debug.Log("Jogador morreu ao colidir com um objeto perigoso!");
+        }
+    }
+
+
+
+
     // Detecta quando o jogador entra em contato com o chão
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (((1 << collision.gameObject.layer) & groundLayer) != 0) // Verifica se o objeto está no Layer do chão
+        if ((((1 << collision.gameObject.layer) & LayerMask.GetMask("Ground")) != 0)
+        || collision.gameObject.CompareTag("Player")) // Verifica se o objeto está no Layer do chão
         {
             isGrounded = true;
             isJumping = false;
@@ -115,7 +129,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (((1 << collision.gameObject.layer) & groundLayer) != 0) // Verifica se o objeto está no Layer do chão
+        if ((((1 << collision.gameObject.layer) & LayerMask.GetMask("Ground")) != 0)
+        || collision.gameObject.CompareTag("Player")) // Verifica se o objeto está no Layer do chão
         {
             isGrounded = true;
             isJumping = false;
@@ -128,7 +143,8 @@ public class PlayerController : MonoBehaviour
     // Detecta quando o jogador sai do contato com o chão
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (((1 << collision.gameObject.layer) & groundLayer) != 0) // Verifica se o objeto está no Layer do chão
+        if ((((1 << collision.gameObject.layer) & LayerMask.GetMask("Ground")) != 0)
+        || collision.gameObject.CompareTag("Player")) // Verifica se o objeto está no Layer do chão
         {
             isGrounded = false;
 

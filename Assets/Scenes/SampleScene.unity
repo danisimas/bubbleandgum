@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 104664919}
   m_Layer: 6
   m_Name: Dangers
-  m_TagString: Untagged
+  m_TagString: Danger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4761,11 +4761,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6996645817206373293, guid: 890269cc8768dcc439d5105c11fac065, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.3
+      value: 4.13
       objectReference: {fileID: 0}
     - target: {fileID: 6996645817206373293, guid: 890269cc8768dcc439d5105c11fac065, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.46
+      value: -2.05
       objectReference: {fileID: 0}
     - target: {fileID: 6996645817206373293, guid: 890269cc8768dcc439d5105c11fac065, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4869,11 +4869,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8364630244737615244, guid: ce8f5baaef0b2654f840122e7d349edd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.23999977
+      value: 1.93
       objectReference: {fileID: 0}
     - target: {fileID: 8364630244737615244, guid: ce8f5baaef0b2654f840122e7d349edd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.46
+      value: -2.04
       objectReference: {fileID: 0}
     - target: {fileID: 8364630244737615244, guid: ce8f5baaef0b2654f840122e7d349edd, type: 3}
       propertyPath: m_LocalPosition.z
