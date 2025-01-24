@@ -42,7 +42,7 @@ public class DoubleJump : MonoBehaviour
     private void PerformDoubleJump()
     {
         // Aplica uma nova velocidade vertical para simular o pulo duplo
-        playerController.rb.velocity = new Vector2(playerController.rb.velocity.x, playerController.jumpForce);
+        playerController.rb.linearVelocity = new Vector2(playerController.rb.linearVelocity.x, playerController.jumpForce);
         Debug.Log("Pulo Duplo Realizado!");
     }
 
