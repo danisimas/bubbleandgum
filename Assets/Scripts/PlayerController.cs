@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
         // Desativa o movimento do jogador
         rb.linearVelocity = Vector2.zero; // Para o movimento imediatamente
-        rb.isKinematic = true; // Torna o Rigidbody kinematic para impedir forças físicas
+        rb.bodyType = RigidbodyType2D.Kinematic; // Torna o Rigidbody kinematic para impedir forças físicas
 
         // Opcional: Desativa o controle do jogador após a morte
         this.enabled = false;
