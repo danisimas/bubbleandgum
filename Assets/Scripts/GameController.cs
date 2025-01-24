@@ -18,21 +18,13 @@ public class GameController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-
-            // Também torna o Canvas ou painéis persistentes
-            var canvas = GameObject.Find("Canvas");
-            if (canvas != null)
-            {
-                DontDestroyOnLoad(canvas);
-            }
+            DontDestroyOnLoad(transform.parent.gameObject);
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
-
 
     private void Start()
     {
@@ -145,14 +137,9 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public void Exit()
+    public void ExitGame()
     {
         Debug.Log("O jogo foi encerrado!"); // Apenas para teste no Editor
         Application.Quit();
-    }
-
-    public void ExitGame()
-    {
-        Debug.Log("Saindo do jogo! Obrigado por jogar.");
     }
 }
