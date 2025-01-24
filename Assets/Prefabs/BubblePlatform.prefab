@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 257173668962642423}
   - component: {fileID: 9213589110181180443}
   - component: {fileID: 7822316387504405176}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: BubblePlatform
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4312054064048258283}
   - component: {fileID: 7738905993627690266}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

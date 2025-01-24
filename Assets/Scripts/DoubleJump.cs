@@ -49,7 +49,7 @@ public class DoubleJump : MonoBehaviour
     private void SpawnOrReusePlatform()
     {
         // Calcula a posição onde a plataforma será spawnada
-        Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y - platformSpawnRadius, transform.position.z);
+        Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y - 2 * platformSpawnRadius, transform.position.z);
 
         // Verifica se há colisão com o chão na posição de spawn
         if (Physics2D.OverlapCircle(spawnPosition, platformSpawnRadius, groundLayer) != null)

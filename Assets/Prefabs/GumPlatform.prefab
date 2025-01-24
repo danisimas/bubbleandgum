@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 257173668962642423}
   - component: {fileID: 9213589110181180443}
   - component: {fileID: 2032882374266580166}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: GumPlatform
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.8003946
+  m_Mass: 1.375
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -105,7 +105,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.84252065, y: 0.95}
+  m_Size: {x: 1.1, y: 1.25}
   m_EdgeRadius: 0
 --- !u!1 &5427525369137489292
 GameObject:
@@ -117,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4312054064048258283}
   - component: {fileID: 7738905993627690266}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

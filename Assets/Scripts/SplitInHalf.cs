@@ -16,7 +16,7 @@ public class SplitInHalf : MonoBehaviour
 
     private void Update()
     {
-        // Verifica se o jogador pode pular
+        // Verifica se o jogador pode spawnar plataforma
         if (playerController == null || playerController.IsDead) return;
         // Se o jogador pressionar o botão de de se dividir cria ou reposiciona a plataforma
         if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Z)) SpawnOrReusePlatform();
@@ -24,8 +24,12 @@ public class SplitInHalf : MonoBehaviour
 
     private void SpawnOrReusePlatform()
     {
+        Vector3 spawnPosition = Vector3.zero;
         // Calcula a posição onde a plataforma será spawnada
-        Vector3 spawnPosition = new Vector3(transform.position.x - platformSpawnRadius, transform.position.y, transform.position.z);
+        if (transform.localScale.x >= 0) spawnPosition = new Vector3(
+            transform.position.x - platformSpawnRadius, transform.position.y, transform.position.z);
+        else spawnPosition = new Vector3(
+            transform.position.x + platformSpawnRadius, transform.position.y, transform.position.z);
 
         // Verifica se há colisão com o chão na posição de spawn
         if (Physics2D.OverlapCircle(spawnPosition, platformSpawnRadius, groundLayer) != null)
@@ -36,16 +40,22 @@ public class SplitInHalf : MonoBehaviour
 
         if (currentPlatform == null)
         {
-            // Instancia a plataforma se ainda não existir
+            // Instancia a plataforma
             currentPlatform = Instantiate(platformPrefab);
-            // Reposiciona a plataforma abaixo do jogador
+
+            // Reposiciona a plataforma ao lado em que o jogador está virado
             currentPlatform.transform.position = spawnPosition;
+
             Debug.Log("Plataforma Instanciada");
+
+            // reduz o tamanho do personagem pela metade
             transform.localScale = new Vector3(transform.localScale.x / 2f, transform.localScale.y / 2, transform.localScale.z);
         }
         else
         {
+            // Destrói a plataforma
             Destroy(currentPlatform);
+            // Retorna o personagem a seu tamanho original
             transform.localScale = new Vector3(transform.localScale.x * 2f, transform.localScale.y * 2, transform.localScale.z);
         }
 

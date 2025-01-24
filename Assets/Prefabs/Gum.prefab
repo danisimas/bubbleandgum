@@ -254,7 +254,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  platformSpawnRadius: 0.5
+  platformSpawnRadius: 0.35
 --- !u!70 &4885126797341176209
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

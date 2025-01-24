@@ -51,11 +51,15 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
 
         // Ajusta a direção do sprite baseado na entrada horizontal
-        if (horizontalInput != 0)
-        {
-            Debug.Log("HInput x: " + horizontalInput);
-            transform.localScale = new Vector3(Mathf.Sign(horizontalInput) * transform.localScale.x, transform.localScale.y, 1);
-        }
+        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)))
+            if (transform.localScale.x > 0) transform.localScale = new Vector3(
+                -transform.localScale.x, transform.localScale.y, 1); // se a escala local estiver virada para a direita, a inverte
+
+        if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)))
+            if (transform.localScale.x < 0) transform.localScale = new Vector3(
+                -transform.localScale.x, transform.localScale.y, 1);// se a escala local estiver virada para a esquerda, a inverte
+
+
     }
 
     // Gerencia o pulo do jogador
