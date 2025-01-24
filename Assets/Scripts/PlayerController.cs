@@ -110,6 +110,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Danger"))
         {
             Die();
+            GameController.Instance.LoseLife(gameObject.tag);
         }
     }
 
