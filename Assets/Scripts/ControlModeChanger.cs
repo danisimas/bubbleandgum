@@ -5,11 +5,13 @@ public class ControlModeChanger : MonoBehaviour
 {
 
     private int characterControlMode = 0;
-
+    [SerializeField] private GameObject _bubbleObject;
+    [SerializeField] private GameObject _gumObject;
 
     private void Update()
     {
-        ChangeCharacterControl();
+        if ((GameController.Instance._gameIsPaused == false) && (GameController.Instance.isGameOver == false))
+            ChangeCharacterControl();
     }
 
     private void ChangeCharacterControl()
@@ -43,21 +45,21 @@ public class ControlModeChanger : MonoBehaviour
 
         if (characterControlMode == 1)
         {
-            GameController.Instance._bubbleObject.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
+            _bubbleObject.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
 
             // coloca animação em idle
-            GameController.Instance._bubbleObject.GetComponentInChildren<Animator>().SetBool("Walk", false);
-            GameController.Instance._bubbleObject.GetComponentInChildren<Animator>().SetBool("Jump", false);
-            GameController.Instance._bubbleObject.GetComponentInChildren<Animator>().SetBool("idle", true);
+            _bubbleObject.GetComponentInChildren<Animator>().SetBool("Walk", false);
+            _bubbleObject.GetComponentInChildren<Animator>().SetBool("Jump", false);
+            _bubbleObject.GetComponentInChildren<Animator>().SetBool("idle", true);
 
             // desativa os movimentos
-            GameController.Instance._bubbleObject.GetComponent<PlayerController>().enabled = false;
-            GameController.Instance._bubbleObject.GetComponent<DoubleJump>().enabled = false;
+            _bubbleObject.GetComponent<PlayerController>().enabled = false;
+            _bubbleObject.GetComponent<DoubleJump>().enabled = false;
         }
         else
         {
-            GameController.Instance._bubbleObject.GetComponent<PlayerController>().enabled = true; // Ativa o movimento
-            GameController.Instance._bubbleObject.GetComponent<DoubleJump>().enabled = true; // Ativa o spawn de plataforma com pulo duplo
+            _bubbleObject.GetComponent<PlayerController>().enabled = true; // Ativa o movimento
+            _bubbleObject.GetComponent<DoubleJump>().enabled = true; // Ativa o spawn de plataforma com pulo duplo
         }
 
     }
@@ -66,21 +68,21 @@ public class ControlModeChanger : MonoBehaviour
     {
         if (characterControlMode == 2)
         {
-            GameController.Instance._gumObject.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
+            _gumObject.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
 
             // coloca a animação em idle
-            GameController.Instance._gumObject.GetComponentInChildren<Animator>().SetBool("Walk", false);
-            GameController.Instance._gumObject.GetComponentInChildren<Animator>().SetBool("Jump", false);
-            GameController.Instance._gumObject.GetComponentInChildren<Animator>().SetBool("idle", true);
+            _gumObject.GetComponentInChildren<Animator>().SetBool("Walk", false);
+            _gumObject.GetComponentInChildren<Animator>().SetBool("Jump", false);
+            _gumObject.GetComponentInChildren<Animator>().SetBool("idle", true);
 
             // desativa os movimentos
-            GameController.Instance._gumObject.GetComponent<PlayerController>().enabled = false;
-            GameController.Instance._gumObject.GetComponent<SplitInHalf>().enabled = false;
+            _gumObject.GetComponent<PlayerController>().enabled = false;
+            _gumObject.GetComponent<SplitInHalf>().enabled = false;
         }
         else
         {
-            GameController.Instance._gumObject.GetComponent<PlayerController>().enabled = true; // Ativa o movimento
-            GameController.Instance._gumObject.GetComponent<SplitInHalf>().enabled = true; // Ativa a divisão com spawn de plataforma
+            _gumObject.GetComponent<PlayerController>().enabled = true; // Ativa o movimento
+            _gumObject.GetComponent<SplitInHalf>().enabled = true; // Ativa a divisão com spawn de plataforma
         }
     }
 
