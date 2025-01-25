@@ -8597,20 +8597,10 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8317540749175519161, guid: 890269cc8768dcc439d5105c11fac065, type: 3}
   m_PrefabInstance: {fileID: 684687618}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1115301628 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7471809955661795956, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
-  m_PrefabInstance: {fileID: 1435903827834183647}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1352452278 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5099192344479200449, guid: ce8f5baaef0b2654f840122e7d349edd, type: 3}
   m_PrefabInstance: {fileID: 984862244453899385}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1408761508 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3228725936172940170, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
-  m_PrefabInstance: {fileID: 1435903827834183647}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2144248367
 GameObject:
@@ -18738,14 +18728,6 @@ PrefabInstance:
       propertyPath: _bubbleObject
       value: 
       objectReference: {fileID: 1066204101}
-    - target: {fileID: 2557807317265665877, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
-      propertyPath: _proximoPanel
-      value: 
-      objectReference: {fileID: 1408761508}
-    - target: {fileID: 2557807317265665877, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
-      propertyPath: _vitoriaPanel
-      value: 
-      objectReference: {fileID: 1115301628}
     - target: {fileID: 4666651397740824846, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -18789,18 +18771,6 @@ PrefabInstance:
     - target: {fileID: 6750646552281919944, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7471809955661795956, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8099931498802723802, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 8099931498802723802, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
-      propertyPath: m_Color.a
-      value: 0.21960784
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
