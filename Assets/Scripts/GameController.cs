@@ -1,6 +1,7 @@
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using UnityEngine;
+
 
 public class GameController : MonoBehaviour
 {
@@ -12,9 +13,6 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject _vitoriaPanel;
     [SerializeField] private GameObject _proximoPanel;
 
-
-    private bool _gameIsPaused;
-    private int characterControlMode = 0;
 
     [HideInInspector] public bool _gameIsPaused = false;
     [HideInInspector] public bool isGameOver = false;
