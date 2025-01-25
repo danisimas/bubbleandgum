@@ -8,20 +8,18 @@ public class GameController : MonoBehaviour
     [Header("Game Controller")]
     [SerializeField] private GameObject _pausePanel;
     [SerializeField] private GameObject _derrotaPanel;
-    [SerializeField] private GameObject _bubbleObject;
-    [SerializeField] private GameObject _gumObject;
     [SerializeField] private GameObject _vitoriaPanel;
     [SerializeField] private GameObject _proximoPanel;
 
-    [SerializeField] private Material activatedMaterial;
-    [SerializeField] private Material deactivatedMaterial;
 
     private bool _gameIsPaused;
     private int characterControlMode = 0;
+
+    [HideInInspector] public bool _gameIsPaused = false;
+    [HideInInspector] public bool isGameOver = false;
     private int playerLives = 1;
     public int counterVictory = 0;
 
-    private bool isGameOver = false;
 
     private void Awake()
     {
@@ -63,87 +61,10 @@ public class GameController : MonoBehaviour
             Victory();
         }
 
-        ChangeCharacterControl();
     }
 
-    private void ChangeCharacterControl()
-    {
-        if ((Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl)))
-        {
-            if (characterControlMode == 2) characterControlMode = 0;
-            else characterControlMode++;
 
-            switch (characterControlMode)
-            {
-                case 1: // Controle apenas do Gum
-                    ChangeActivedInBubble();
-                    break;
-                case 2: // Controle apenas da Bubble
-                    ChangeActivedInBubble();
-                    ChangeActivedInGum();
-                    break;
-                default: // Controle de ambos os personagens
-                    ChangeActivedInGum();
-                    break;
-            }
-        }
-    }
 
-    private void ChangeActivedInBubble()
-    {
-        if (characterControlMode == 1)
-        {
-            _bubbleObject.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
-
-            // coloca animação em idle
-            _bubbleObject.GetComponentInChildren<Animator>().SetBool("Walk", false);
-            _bubbleObject.GetComponentInChildren<Animator>().SetBool("Jump", false);
-            _bubbleObject.GetComponentInChildren<Animator>().SetBool("idle", true);
-
-            // desativa os movimentos
-            _bubbleObject.GetComponent<PlayerController>().enabled = false;
-            _bubbleObject.GetComponent<DoubleJump>().enabled = false;
-
-            // Aplica o material desativado
-            _bubbleObject.GetComponent<SpriteRenderer>().material = deactivatedMaterial;
-        }
-        else
-        {
-            _bubbleObject.GetComponent<PlayerController>().enabled = true; // Ativa o movimento
-            _bubbleObject.GetComponent<DoubleJump>().enabled = true; // Ativa o spawn de plataforma com pulo duplo
-
-            // Aplica o material ativado
-            _bubbleObject.GetComponent<SpriteRenderer>().material = activatedMaterial;
-        }
-    }
-
-    private void ChangeActivedInGum()
-    {
-        if (characterControlMode == 2)
-        {
-            _gumObject.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
-
-            // coloca a animação em idle
-            _gumObject.GetComponentInChildren<Animator>().SetBool("Walk", false);
-            _gumObject.GetComponentInChildren<Animator>().SetBool("Jump", false);
-            _gumObject.GetComponentInChildren<Animator>().SetBool("idle", true);
-
-            // desativa os movimentos
-            _gumObject.GetComponent<PlayerController>().enabled = false;
-            _gumObject.GetComponent<SplitInHalf>().enabled = false;
-
-            // Aplica o material desativado
-            _gumObject.GetComponent<SpriteRenderer>().material = deactivatedMaterial;
-        }
-        else
-        {
-            _gumObject.GetComponent<PlayerController>().enabled = true; // Ativa o movimento
-            _gumObject.GetComponent<SplitInHalf>().enabled = true; // Ativa a divisão com spawn de plataforma
-
-            // Aplica o material ativado
-            _gumObject.GetComponent<SpriteRenderer>().material = activatedMaterial;
-        }
-    }
 
     public void RestartGame()
     {
@@ -194,11 +115,13 @@ public class GameController : MonoBehaviour
     private void StopTime()
     {
         Time.timeScale = 0;
+       
     }
 
     private void RestartTime()
     {
         Time.timeScale = 1;
+
     }
 
     public void LoseLife(string tag)
