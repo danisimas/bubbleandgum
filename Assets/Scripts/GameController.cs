@@ -9,10 +9,10 @@ public class GameController : MonoBehaviour
     [Header("Game Controller")]
     [SerializeField] private GameObject _pausePanel;
     [SerializeField] private GameObject _derrotaPanel;
-    [SerializeField] private GameObject _bubbleObject;
-    [SerializeField] private GameObject _gumObject;
     [SerializeField] private GameObject _vitoriaPanel;
     [SerializeField] private GameObject _proximoPanel;
+    [SerializeField] public GameObject _bubbleObject;
+    [SerializeField] public GameObject _gumObject;
 
     private bool _gameIsPaused;
     private int characterControlMode = 0;
@@ -138,6 +138,12 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void SwitchCharactersSpecialIsEnabled(bool scriptIsEnabled)
+    {
+        _gumObject.GetComponent<SplitInHalf>().enabled = scriptIsEnabled;
+        _bubbleObject.GetComponent<DoubleJump>().enabled = scriptIsEnabled;
+    }
+
     public void RestartGame()
     {
         ResetGame();
@@ -187,11 +193,13 @@ public class GameController : MonoBehaviour
     private void StopTime()
     {
         Time.timeScale = 0;
+        SwitchCharactersSpecialIsEnabled(false);
     }
 
     private void RestartTime()
     {
         Time.timeScale = 1;
+        SwitchCharactersSpecialIsEnabled(true);
     }
 
     public void LoseLife(string tag)
