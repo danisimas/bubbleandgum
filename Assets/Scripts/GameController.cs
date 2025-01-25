@@ -11,8 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject _derrotaPanel;
     [SerializeField] private GameObject _vitoriaPanel;
     [SerializeField] private GameObject _proximoPanel;
-    [SerializeField] private GameObject _bubbleObject;
-    [SerializeField] private GameObject _gumObject;
+
 
     [HideInInspector] public bool _gameIsPaused = false;
     [HideInInspector] public bool isGameOver = false;
@@ -64,13 +63,7 @@ public class GameController : MonoBehaviour
     }
 
 
-    public void CharacterActionScriptsIsEnabled(bool scriptIsEnabled)
-    {
-        _gumObject.GetComponent<SplitInHalf>().enabled = scriptIsEnabled;
-        _bubbleObject.GetComponent<DoubleJump>().enabled = scriptIsEnabled;
-        _gumObject.GetComponent<PlayerController>().enabled = scriptIsEnabled;
-        _bubbleObject.GetComponent<PlayerController>().enabled = scriptIsEnabled;
-    }
+
 
     public void RestartGame()
     {
@@ -121,13 +114,13 @@ public class GameController : MonoBehaviour
     private void StopTime()
     {
         Time.timeScale = 0;
-        CharacterActionScriptsIsEnabled(false);
+       
     }
 
     private void RestartTime()
     {
         Time.timeScale = 1;
-        CharacterActionScriptsIsEnabled(true);
+
     }
 
     public void LoseLife(string tag)
