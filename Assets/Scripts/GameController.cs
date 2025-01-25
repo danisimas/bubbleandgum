@@ -114,13 +114,12 @@ public class GameController : MonoBehaviour
     private void StopTime()
     {
         Time.timeScale = 0;
-       
+
     }
 
     private void RestartTime()
     {
         Time.timeScale = 1;
-
     }
 
     public void LoseLife(string tag)

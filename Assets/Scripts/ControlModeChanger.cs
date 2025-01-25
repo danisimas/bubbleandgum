@@ -10,7 +10,11 @@ public class ControlModeChanger : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(GameController.Instance._gameIsPaused);
+        Debug.Log(GameController.Instance.isGameOver);
+
         if ((GameController.Instance._gameIsPaused == false) && (GameController.Instance.isGameOver == false))
+
             ChangeCharacterControl();
     }
 
