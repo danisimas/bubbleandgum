@@ -8214,9 +8214,10 @@ GameObject:
   - component: {fileID: 513139319}
   - component: {fileID: 513139321}
   - component: {fileID: 513139320}
+  - component: {fileID: 513139322}
   m_Layer: 0
   m_Name: Interactable
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8279,7 +8280,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -8364,6 +8365,44 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &513139322
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513139318}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -8558,10 +8597,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8317540749175519161, guid: 890269cc8768dcc439d5105c11fac065, type: 3}
   m_PrefabInstance: {fileID: 684687618}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1115301628 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7471809955661795956, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
+  m_PrefabInstance: {fileID: 1435903827834183647}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1352452278 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5099192344479200449, guid: ce8f5baaef0b2654f840122e7d349edd, type: 3}
   m_PrefabInstance: {fileID: 984862244453899385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1408761508 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3228725936172940170, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
+  m_PrefabInstance: {fileID: 1435903827834183647}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2144248367
 GameObject:
@@ -18689,6 +18738,14 @@ PrefabInstance:
       propertyPath: _bubbleObject
       value: 
       objectReference: {fileID: 1066204101}
+    - target: {fileID: 2557807317265665877, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
+      propertyPath: _proximoPanel
+      value: 
+      objectReference: {fileID: 1408761508}
+    - target: {fileID: 2557807317265665877, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
+      propertyPath: _vitoriaPanel
+      value: 
+      objectReference: {fileID: 1115301628}
     - target: {fileID: 4666651397740824846, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -18732,6 +18789,18 @@ PrefabInstance:
     - target: {fileID: 6750646552281919944, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471809955661795956, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099931498802723802, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 8099931498802723802, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
+      propertyPath: m_Color.a
+      value: 0.21960784
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

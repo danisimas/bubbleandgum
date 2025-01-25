@@ -119,11 +119,18 @@ public class PlayerController : MonoBehaviour
     // Detecta quando o jogador entra em contato com o chão
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if ((((1 << collision.gameObject.layer) & LayerMask.GetMask("Ground")) != 0)
         || collision.gameObject.CompareTag("Player")) // Verifica se o objeto está no Layer do chão
         {
             isGrounded = true;
             isJumping = false;
+        }
+
+        if (collision.gameObject.CompareTag("Interactable"))
+        {
+            Debug.Log("Interactable enttrou");
+            GameController.Instance.counterVictory++;
         }
 
 
@@ -148,6 +155,11 @@ public class PlayerController : MonoBehaviour
         || collision.gameObject.CompareTag("Player")) // Verifica se o objeto está no Layer do chão
         {
             isGrounded = false;
+        }
+
+        if (collision.gameObject.CompareTag("Interactable"))
+        {
+            GameController.Instance.counterVictory--;
         }
     }
 }

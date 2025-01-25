@@ -11,10 +11,14 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject _derrotaPanel;
     [SerializeField] private GameObject _bubbleObject;
     [SerializeField] private GameObject _gumObject;
+    [SerializeField] private GameObject _vitoriaPanel;
+    [SerializeField] private GameObject _proximoPanel;
 
     private bool _gameIsPaused;
     private int characterControlMode = 0;
     private int playerLives = 1;
+    public int counterVictory = 0;
+
     private bool isGameOver = false;
 
     private void Awake()
@@ -34,6 +38,7 @@ public class GameController : MonoBehaviour
     {
         _gameIsPaused = false;
         isGameOver = false;
+        counterVictory = 0;
         Time.timeScale = 1;
     }
 
@@ -52,7 +57,13 @@ public class GameController : MonoBehaviour
             }
         }
 
+        if (counterVictory >= 2)
+        {
+            Victory();
+        }
+
         ChangeCharacterControl();
+
     }
 
     private void ChangeCharacterControl()
@@ -140,12 +151,19 @@ public class GameController : MonoBehaviour
         isGameOver = false;
         _gameIsPaused = false;
         playerLives = 1;
+        counterVictory = 0;
 
         if (_derrotaPanel != null)
             _derrotaPanel.SetActive(false);
 
         if (_pausePanel != null)
             _pausePanel.SetActive(false);
+
+        if (_vitoriaPanel != null)
+            _vitoriaPanel.SetActive(false);
+
+        if (_proximoPanel != null)
+            _proximoPanel.SetActive(false);
 
         RestartTime();
     }
@@ -215,9 +233,31 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public void ExitGame()
+    public void Exit()
     {
         Debug.Log("O jogo foi encerrado!"); // Apenas para teste no Editor
         Application.Quit();
     }
+    public void ExitGame()
+    {
+        Debug.Log("Saindo do jogo! Obrigado por jogar.");
+    }
+
+    public void Victory()
+    {
+        if (counterVictory == 4)
+        {
+
+
+            Debug.Log("Victory!");
+
+            isGameOver = true;
+            StopTime();
+
+            if (_vitoriaPanel != null)
+                _vitoriaPanel.SetActive(true);
+        }
+
+    }
+
 }
