@@ -8539,6 +8539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bubble
       objectReference: {fileID: 0}
+    - target: {fileID: 8468350902918252648, guid: 890269cc8768dcc439d5105c11fac065, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18871,6 +18875,18 @@ PrefabInstance:
       propertyPath: _bubbleObject
       value: 
       objectReference: {fileID: 1066204101}
+    - target: {fileID: 4128715911901716882, guid: 6f36180d3cfb7cf498bdcdb83333e2b0, type: 3}
+      propertyPath: activeMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a9c6ab079d3e51468bf4361b8684950, type: 2}
+    - target: {fileID: 4128715911901716882, guid: 6f36180d3cfb7cf498bdcdb83333e2b0, type: 3}
+      propertyPath: defaultMaterial
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 4128715911901716882, guid: 6f36180d3cfb7cf498bdcdb83333e2b0, type: 3}
+      propertyPath: inactiveMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 0727732d6c8f93d4080341c3e817d3c2, type: 2}
     - target: {fileID: 4489965621149504612, guid: 6f36180d3cfb7cf498bdcdb83333e2b0, type: 3}
       propertyPath: _gumObject
       value: 
@@ -18879,14 +18895,6 @@ PrefabInstance:
       propertyPath: _bubbleObject
       value: 
       objectReference: {fileID: 1066204101}
-    - target: {fileID: 4128715911901716882, guid: 6f36180d3cfb7cf498bdcdb83333e2b0, type: 3}
-      propertyPath: activeMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 6a9c6ab079d3e51468bf4361b8684950, type: 2}
-    - target: {fileID: 4128715911901716882, guid: 6f36180d3cfb7cf498bdcdb83333e2b0, type: 3}
-      propertyPath: inactiveMaterial
-      value: 
-      objectReference: {fileID: 2100000, guid: 0727732d6c8f93d4080341c3e817d3c2, type: 2}
     - target: {fileID: 5141793001443502554, guid: 6f36180d3cfb7cf498bdcdb83333e2b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

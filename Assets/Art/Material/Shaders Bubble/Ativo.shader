@@ -1,12 +1,12 @@
-Shader "Custom/Activbe"
+Shader "Custom/Ativo"
 {
-     Properties {
+    Properties {
         _MainTex ("Sprite Texture", 2D) = "white" {}
         _GlowColor ("Glow Color", Color) = (1, 1, 0, 1)
         _GlowIntensity ("Glow Intensity", Range(0, 5)) = 1.0
     }
     SubShader {
-        Tags { "RenderType"="Transparent" "Queue"="Transparent" }
+        Tags { "RenderType"="" "Queue"="Transparent" }
         Blend SrcAlpha OneMinusSrcAlpha
         Cull Off ZWrite Off
 
