@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
@@ -115,7 +116,7 @@ public class GameController : MonoBehaviour
     private void StopTime()
     {
         Time.timeScale = 0;
-       
+
     }
 
     private void RestartTime()
