@@ -18725,6 +18725,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1352452278}
     - target: {fileID: 2557807317265665877, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
+      propertyPath: _pausePanel
+      value: 
+      objectReference: {fileID: 1435903827834183648}
+    - target: {fileID: 2557807317265665877, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
       propertyPath: _bubbleObject
       value: 
       objectReference: {fileID: 1066204101}
@@ -18777,6 +18781,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
+--- !u!1 &1435903827834183648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5139902021873826483, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
+  m_PrefabInstance: {fileID: 1435903827834183647}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3874275095512262694
 PrefabInstance:
   m_ObjectHideFlags: 0
