@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5141793001443502554}
   - component: {fileID: 4128715911901716882}
-  - component: {fileID: 1110727339573348692}
+  - component: {fileID: 4489965621149504612}
   m_Layer: 0
   m_Name: ControlManager
   m_TagString: Untagged
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bubbleObject: {fileID: 0}
   _gumObject: {fileID: 0}
---- !u!114 &1110727339573348692
+--- !u!114 &4489965621149504612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,3 +59,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de13784a9252f3441ba7b5c5f099f8a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bubbleObject: {fileID: 0}
+  _gumObject: {fileID: 0}

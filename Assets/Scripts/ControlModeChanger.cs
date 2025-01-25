@@ -13,17 +13,18 @@ public class ControlModeChanger : MonoBehaviour
 
     private void Update()
     {
-        if (!GameController.Instance._gameIsPaused && !GameController.Instance.isGameOver)
-        {
+        Debug.Log(GameController.Instance._gameIsPaused);
+        Debug.Log(GameController.Instance.isGameOver);
+
+        if ((GameController.Instance._gameIsPaused == false) && (GameController.Instance.isGameOver == false))
+
             ChangeCharacterControl();
-        }
     }
 
     private void ChangeCharacterControl()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
+        if ((Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl)))
         {
-            // Alterna entre os modos de controle (0, 1 e 2)
             if (characterControlMode == 2) characterControlMode = 0;
             else characterControlMode++;
 
@@ -40,78 +41,58 @@ public class ControlModeChanger : MonoBehaviour
                     ChangeActivedInGum();
                     break;
             }
+
         }
+
     }
 
     private void ChangeActivedInBubble()
     {
+
+
         if (characterControlMode == 1)
         {
-            // Configuração para Bubble inativo
             _bubbleObject.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
 
-            // Ajusta animações para idle
-            var animator = _bubbleObject.GetComponentInChildren<Animator>();
-            animator.SetBool("Walk", false);
-            animator.SetBool("Jump", false);
-            animator.SetBool("idle", true);
+            // coloca animação em idle
+            _bubbleObject.GetComponentInChildren<Animator>().SetBool("Walk", false);
+            _bubbleObject.GetComponentInChildren<Animator>().SetBool("Jump", false);
+            _bubbleObject.GetComponentInChildren<Animator>().SetBool("idle", true);
 
-            // Desativa os movimentos
+            // desativa os movimentos
             _bubbleObject.GetComponent<PlayerController>().enabled = false;
             _bubbleObject.GetComponent<DoubleJump>().enabled = false;
-
-            // Atualiza o material para inativo
-            UpdateMaterial(_bubbleObject, inactiveMaterial);
         }
         else
         {
-            // Configuração para Bubble ativo
-            _bubbleObject.GetComponent<PlayerController>().enabled = true;
-            _bubbleObject.GetComponent<DoubleJump>().enabled = true;
-
-            // Atualiza o material para ativo
-            UpdateMaterial(_bubbleObject, activeMaterial);
+            _bubbleObject.GetComponent<PlayerController>().enabled = true; // Ativa o movimento
+            _bubbleObject.GetComponent<DoubleJump>().enabled = true; // Ativa o spawn de plataforma com pulo duplo
         }
+
     }
 
     private void ChangeActivedInGum()
     {
         if (characterControlMode == 2)
         {
-            // Configuração para Gum inativo
             _gumObject.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
 
-            // Ajusta animações para idle
-            var animator = _gumObject.GetComponentInChildren<Animator>();
-            animator.SetBool("Walk", false);
-            animator.SetBool("Jump", false);
-            animator.SetBool("idle", true);
+            // coloca a animação em idle
+            _gumObject.GetComponentInChildren<Animator>().SetBool("Walk", false);
+            _gumObject.GetComponentInChildren<Animator>().SetBool("Jump", false);
+            _gumObject.GetComponentInChildren<Animator>().SetBool("idle", true);
 
-            // Desativa os movimentos
+            // desativa os movimentos
             _gumObject.GetComponent<PlayerController>().enabled = false;
             _gumObject.GetComponent<SplitInHalf>().enabled = false;
-
-            // Atualiza o material para inativo
-            UpdateMaterial(_gumObject, inactiveMaterial);
         }
         else
         {
-            // Configuração para Gum ativo
-            _gumObject.GetComponent<PlayerController>().enabled = true;
-            _gumObject.GetComponent<SplitInHalf>().enabled = true;
-
-            // Atualiza o material para ativo
-            UpdateMaterial(_gumObject, activeMaterial);
+            _gumObject.GetComponent<PlayerController>().enabled = true; // Ativa o movimento
+            _gumObject.GetComponent<SplitInHalf>().enabled = true; // Ativa a divisão com spawn de plataforma
         }
     }
 
-    private void UpdateMaterial(GameObject obj, Material newMaterial)
-    {
-        // Altera o material do objeto
-        Renderer renderer = obj.GetComponent<Renderer>();
-        if (renderer != null)
-        {
-            renderer.material = newMaterial;
-        }
-    }
 }
+
+
