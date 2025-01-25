@@ -1,4 +1,3 @@
-using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +12,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject _gumObject;
     [SerializeField] private GameObject _vitoriaPanel;
     [SerializeField] private GameObject _proximoPanel;
+
+    [SerializeField] private Material activatedMaterial;
+    [SerializeField] private Material deactivatedMaterial;
 
     private bool _gameIsPaused;
     private int characterControlMode = 0;
@@ -42,7 +44,6 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1;
     }
 
-
     private void Update()
     {
         if (!isGameOver && Input.GetKeyDown(KeyCode.Escape))
@@ -63,7 +64,6 @@ public class GameController : MonoBehaviour
         }
 
         ChangeCharacterControl();
-
     }
 
     private void ChangeCharacterControl()
@@ -86,15 +86,11 @@ public class GameController : MonoBehaviour
                     ChangeActivedInGum();
                     break;
             }
-
         }
-
     }
 
     private void ChangeActivedInBubble()
     {
-
-
         if (characterControlMode == 1)
         {
             _bubbleObject.GetComponent<Rigidbody2D>().linearVelocity = Vector3.zero;
@@ -107,13 +103,18 @@ public class GameController : MonoBehaviour
             // desativa os movimentos
             _bubbleObject.GetComponent<PlayerController>().enabled = false;
             _bubbleObject.GetComponent<DoubleJump>().enabled = false;
+
+            // Aplica o material desativado
+            _bubbleObject.GetComponent<SpriteRenderer>().material = deactivatedMaterial;
         }
         else
         {
             _bubbleObject.GetComponent<PlayerController>().enabled = true; // Ativa o movimento
             _bubbleObject.GetComponent<DoubleJump>().enabled = true; // Ativa o spawn de plataforma com pulo duplo
-        }
 
+            // Aplica o material ativado
+            _bubbleObject.GetComponent<SpriteRenderer>().material = activatedMaterial;
+        }
     }
 
     private void ChangeActivedInGum()
@@ -130,11 +131,17 @@ public class GameController : MonoBehaviour
             // desativa os movimentos
             _gumObject.GetComponent<PlayerController>().enabled = false;
             _gumObject.GetComponent<SplitInHalf>().enabled = false;
+
+            // Aplica o material desativado
+            _gumObject.GetComponent<SpriteRenderer>().material = deactivatedMaterial;
         }
         else
         {
             _gumObject.GetComponent<PlayerController>().enabled = true; // Ativa o movimento
             _gumObject.GetComponent<SplitInHalf>().enabled = true; // Ativa a divisão com spawn de plataforma
+
+            // Aplica o material ativado
+            _gumObject.GetComponent<SpriteRenderer>().material = activatedMaterial;
         }
     }
 
@@ -247,8 +254,6 @@ public class GameController : MonoBehaviour
     {
         if (counterVictory == 4)
         {
-
-
             Debug.Log("Victory!");
 
             isGameOver = true;
@@ -257,7 +262,5 @@ public class GameController : MonoBehaviour
             if (_vitoriaPanel != null)
                 _vitoriaPanel.SetActive(true);
         }
-
     }
-
 }
