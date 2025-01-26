@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bubbleObject: {fileID: 0}
   _gumObject: {fileID: 0}
+  activeMaterial: {fileID: 2100000, guid: 6a9c6ab079d3e51468bf4361b8684950, type: 2}
+  defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!114 &4489965621149504612
 MonoBehaviour:
   m_ObjectHideFlags: 0

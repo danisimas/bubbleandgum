@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6a9c6ab079d3e51468bf4361b8684950, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -139,12 +139,42 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 60506dae77602fc40a2e0b9a0d4ffa52, type: 2}
+    - {fileID: 11400000, guid: 5b93e7b22358a614290706b553fc4c1f, type: 2}
+    - {fileID: 11400000, guid: 825a93e4f8c97f342aa6153ace7e0ec8, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 8508802147760221462}
           m_TargetAssemblyTypeName: AnimationEvents, Assembly-CSharp
           m_MethodName: ShowDefeatPanelAfterDeath
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8508802147760221462}
+          m_TargetAssemblyTypeName: AnimationEvents, Assembly-CSharp
+          m_MethodName: BubbleDie
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8508802147760221462}
+          m_TargetAssemblyTypeName: AnimationEvents, Assembly-CSharp
+          m_MethodName: BubbleJump
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

@@ -48,8 +48,11 @@ MonoBehaviour:
   _derrotaPanel: {fileID: 6673243469769589274}
   _vitoriaPanel: {fileID: 7471809955661795956}
   _proximoPanel: {fileID: 3228725936172940170}
+  _textPausePanel: {fileID: 0}
   _gameIsPaused: 0
   isGameOver: 0
+  isVictory: 0
+  currentSceneName: 
   counterVictory: 0
 --- !u!1 &4666651397740824846
 GameObject:
@@ -224,6 +227,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2557807317265665877}
+    - target: {fileID: 3896837830286342528, guid: e2996cd3e53717743ae587cf7cd65008, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadNextScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896837830286342528, guid: e2996cd3e53717743ae587cf7cd65008, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Game 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4020737441773901743, guid: e2996cd3e53717743ae587cf7cd65008, type: 3}
       propertyPath: m_Pivot.x
       value: 0

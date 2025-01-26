@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if (!isGameOver && Input.GetKeyDown(KeyCode.Escape))
+        if (!isGameOver && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)))
         {
             if (!_gameIsPaused)
             {
