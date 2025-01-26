@@ -9,6 +9,14 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject creditsPanel;
     [SerializeField] private GameObject menuPanel;
+    [SerializeField] private ParticleSystem menuParticles; // Referência ao sistema de partículas
+
+
+    private void Start()
+    {
+        OnEnterMenu();
+    }
+
 
     // Método para ir ao jogo (carregar a cena do jogo)
     public void GoToGame()
@@ -44,6 +52,28 @@ public class MenuController : MonoBehaviour
     {
         Debug.Log("Sair do Jogo");
         Application.Quit();
+    }
+
+    public void OnEnterMenu()
+    {
+        // Verifica se o sistema de partículas está definido e inicia as partículas
+        if (menuParticles != null)
+        {
+            menuParticles.Play();
+        }
+        else
+        {
+            Debug.LogWarning("MenuParticles não está atribuído no inspector!");
+        }
+    }
+
+    public void OnExitMenu()
+    {
+        // Para as partículas quando sair do menu
+        if (menuParticles != null)
+        {
+            menuParticles.Stop();
+        }
     }
 
 
