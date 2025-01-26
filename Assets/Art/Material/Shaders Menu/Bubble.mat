@@ -41,12 +41,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AlphaCutoff: 0.1
     - _BubbleDistortion: 1
-    - _Distortion: 0.555
+    - _Distortion: 0.108
     - _EnableExternalAlpha: 0
-    - _Iridescence: 0.877
+    - _Iridescence: 0.9
+    - _PixelSize: 16
     - _ShineIntensity: 0.871
-    - _Transparency: 0.327
+    - _Transparency: 0.5
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

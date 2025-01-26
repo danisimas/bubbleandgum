@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject _derrotaPanel;
     [SerializeField] private GameObject _vitoriaPanel;
     [SerializeField] private GameObject _proximoPanel;
+    [SerializeField] private GameObject _textPausePanel;
 
 
     [HideInInspector] public bool _gameIsPaused = false;
@@ -53,11 +54,6 @@ public class GameController : MonoBehaviour
             {
                 UnpauseGame();
             }
-        }
-
-        if (counterVictory >= 2)
-        {
-            Victory();
         }
 
     }
@@ -173,7 +169,7 @@ public class GameController : MonoBehaviour
 
     public void Victory()
     {
-        if (counterVictory == 4)
+        if (counterVictory >= 4)
         {
             Debug.Log("Victory!");
 
