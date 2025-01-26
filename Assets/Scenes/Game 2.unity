@@ -19463,6 +19463,10 @@ PrefabInstance:
       propertyPath: _bubbleObject
       value: 
       objectReference: {fileID: 1066204101}
+    - target: {fileID: 2557807317265665877, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
+      propertyPath: _textPausePanel
+      value: 
+      objectReference: {fileID: 1435903827834183649}
     - target: {fileID: 2946749568705917847, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -19527,6 +19531,11 @@ PrefabInstance:
 --- !u!1 &1435903827834183648 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5139902021873826483, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
+  m_PrefabInstance: {fileID: 1435903827834183647}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1435903827834183649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5469652862706360995, guid: 0e872c747b7b9014eb4e2f08d5fb56ad, type: 3}
   m_PrefabInstance: {fileID: 1435903827834183647}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3874275095512262694

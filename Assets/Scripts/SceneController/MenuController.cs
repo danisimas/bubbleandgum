@@ -26,6 +26,7 @@ public class MenuController : MonoBehaviour
     {
         OnExitMenu();
         Debug.Log("Ir para o jogo");
+        GameController.Instance._textPausePanel.SetActive(true);
         SceneManager.LoadScene("Game 1");
     }
 

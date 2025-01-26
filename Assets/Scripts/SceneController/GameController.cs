@@ -12,13 +12,13 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject _derrotaPanel;
     [SerializeField] private GameObject _vitoriaPanel;
     [SerializeField] private GameObject _proximoPanel;
-    [SerializeField] private GameObject _textPausePanel;
+    [SerializeField] public GameObject _textPausePanel;
 
 
     [HideInInspector] public bool _gameIsPaused = false;
     [HideInInspector] public bool isGameOver = false;
     [HideInInspector] public bool isVictory = false;
-    [HideInInspector] public string currentSceneName;
+    [HideInInspector] public int currentSceneIndex;
 
     private int playerLives = 1;
     public int counterVictory = 0;
@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(transform.parent.gameObject);
-            currentSceneName = SceneManager.GetActiveScene().name;
+            currentSceneIndex = 1;
         }
         else
         {
@@ -46,6 +46,7 @@ public class GameController : MonoBehaviour
         counterVictory = 0;
         Time.timeScale = 1;
     }
+
 
     private void Update()
     {
@@ -80,7 +81,7 @@ public class GameController : MonoBehaviour
     {
         ResetGame();
         Debug.Log("Jogo Reiniciado!");
-        SceneManager.LoadScene(currentSceneName);
+        SceneManager.LoadScene("Game " + currentSceneIndex);
     }
 
 
@@ -104,11 +105,6 @@ public class GameController : MonoBehaviour
 
         if (_proximoPanel != null)
             _proximoPanel.SetActive(false);
-
-        if (_textPausePanel != null)
-            _textPausePanel.SetActive(false);
-
-
 
         RestartTime();
     }
@@ -178,25 +174,26 @@ public class GameController : MonoBehaviour
 
     public void ReturnToMenu()
     {
-        currentSceneName = "Menu";
         ResetGame();
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(0);
     }
 
 
     public void LoadNextScene()
     {
-        // Obtemos o índice da cena atual
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         // Calcula o índice da próxima cena
         int nextSceneIndex = currentSceneIndex + 1;
+        currentSceneIndex = nextSceneIndex;
+
+        Debug.Log(nextSceneIndex);
+
 
         // Verifica se há mais cenas no Build Settings
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        if (nextSceneIndex <= 4)
         {
             ResetGame();
-            SceneManager.LoadScene(nextSceneIndex); // Carrega a próxima cena
+            SceneManager.LoadScene("Game " + nextSceneIndex);
         }
         else
         {
