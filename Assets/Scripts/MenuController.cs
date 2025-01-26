@@ -14,7 +14,7 @@ public class MenuController : MonoBehaviour
     public void GoToGame()
     {
         Debug.Log("Ir para o jogo");
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Game 1");
     }
 
     // Método para abrir o painel de configurações
