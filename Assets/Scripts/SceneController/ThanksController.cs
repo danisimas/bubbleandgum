@@ -15,5 +15,6 @@ public class ThanksController : MonoBehaviour
         menuPanel.SetActive(false);
         GameController.Instance.ReturnToMenu();
         GameController.Instance.currentSceneIndex = 1;
+        GameController.Instance._textPausePanel.SetActive(false);
     }
 }

@@ -106,6 +106,9 @@ public class GameController : MonoBehaviour
         if (_proximoPanel != null)
             _proximoPanel.SetActive(false);
 
+        if (_pausePanel != null)
+            _textPausePanel.SetActive(true);
+
         RestartTime();
     }
 

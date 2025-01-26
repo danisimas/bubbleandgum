@@ -26,8 +26,8 @@ public class MenuController : MonoBehaviour
     {
         OnExitMenu();
         Debug.Log("Ir para o jogo");
-        GameController.Instance._textPausePanel.SetActive(true);
-        SceneManager.LoadScene("Game 1");
+        if (!(GameController.Instance == null))GameController.Instance._textPausePanel.SetActive(true);
+        SceneManager.LoadScene(1);
     }
 
     // Método para abrir o painel de configurações
