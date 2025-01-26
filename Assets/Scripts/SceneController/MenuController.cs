@@ -9,7 +9,10 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject creditsPanel;
     [SerializeField] private GameObject menuPanel;
-    [SerializeField] private ParticleSystem menuParticles; // Referência ao sistema de partículas
+    [SerializeField] private ParticleSystem menuParticles;
+    [SerializeField] private ParticleSystem menuParticles1;
+
+    // Referência ao sistema de partículas
 
 
     private void Start()
@@ -21,6 +24,7 @@ public class MenuController : MonoBehaviour
     // Método para ir ao jogo (carregar a cena do jogo)
     public void GoToGame()
     {
+        OnExitMenu();
         Debug.Log("Ir para o jogo");
         SceneManager.LoadScene("Game 1");
     }
@@ -60,6 +64,7 @@ public class MenuController : MonoBehaviour
         if (menuParticles != null)
         {
             menuParticles.Play();
+            menuParticles1.Play();
         }
         else
         {
@@ -73,6 +78,7 @@ public class MenuController : MonoBehaviour
         if (menuParticles != null)
         {
             menuParticles.Stop();
+            menuParticles1.Stop();
         }
     }
 

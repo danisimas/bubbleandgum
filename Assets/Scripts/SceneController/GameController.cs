@@ -116,6 +116,10 @@ public class GameController : MonoBehaviour
     private void PauseGame()
     {
         StopTime();
+
+        if (_textPausePanel != null)
+            _textPausePanel.SetActive(false);
+
         if (_pausePanel != null)
             _pausePanel.SetActive(true);
         _gameIsPaused = true;
