@@ -3857,7 +3857,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 1486749917}
   creditsPanel: {fileID: 1650821441}
   menuPanel: {fileID: 247828353}
-  menuParticles: {fileID: 0}
+  menuParticles: {fileID: 1385641014}
 --- !u!1 &1222133351
 GameObject:
   m_ObjectHideFlags: 0

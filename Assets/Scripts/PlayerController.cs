@@ -131,6 +131,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Interactable enttrou");
             GameController.Instance.counterVictory++;
+            GameController.Instance.isVictory = true;
         }
 
 

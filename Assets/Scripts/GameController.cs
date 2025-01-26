@@ -17,6 +17,9 @@ public class GameController : MonoBehaviour
 
     [HideInInspector] public bool _gameIsPaused = false;
     [HideInInspector] public bool isGameOver = false;
+    [HideInInspector] public bool isVictory = false;
+    [HideInInspector] public string currentSceneName;
+
     private int playerLives = 1;
     public int counterVictory = 0;
 
@@ -27,6 +30,7 @@ public class GameController : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(transform.parent.gameObject);
+            currentSceneName = SceneManager.GetActiveScene().name;
         }
         else
         {
@@ -38,6 +42,7 @@ public class GameController : MonoBehaviour
     {
         _gameIsPaused = false;
         isGameOver = false;
+        isVictory = false;
         counterVictory = 0;
         Time.timeScale = 1;
     }
@@ -56,6 +61,16 @@ public class GameController : MonoBehaviour
             }
         }
 
+        if (isVictory && counterVictory >= 4)
+        {
+            Victory();
+        }
+        else if (counterVictory < 0)
+        {
+            counterVictory = 0;
+        }
+
+
     }
 
 
@@ -65,13 +80,15 @@ public class GameController : MonoBehaviour
     {
         ResetGame();
         Debug.Log("Jogo Reiniciado!");
-        Scene currentScene = SceneManager.GetActiveScene(); // Get the current scene
-        SceneManager.LoadScene(currentScene.name);
+        SceneManager.LoadScene(currentSceneName);
     }
+
+
 
     private void ResetGame()
     {
         isGameOver = false;
+        isVictory = false;
         _gameIsPaused = false;
         playerLives = 1;
         counterVictory = 0;
@@ -87,6 +104,11 @@ public class GameController : MonoBehaviour
 
         if (_proximoPanel != null)
             _proximoPanel.SetActive(false);
+
+        if (_textPausePanel != null)
+            _textPausePanel.SetActive(false);
+
+
 
         RestartTime();
     }
@@ -105,6 +127,8 @@ public class GameController : MonoBehaviour
             _pausePanel.SetActive(false);
         RestartTime();
         _gameIsPaused = false;
+        if (_textPausePanel != null)
+            _textPausePanel.SetActive(true);
     }
 
     private void StopTime()
@@ -143,19 +167,41 @@ public class GameController : MonoBehaviour
 
         if (_derrotaPanel != null)
             _derrotaPanel.SetActive(true);
+
+        if (_textPausePanel != null)
+            _textPausePanel.SetActive(false);
     }
 
     public void ReturnToMenu()
     {
+        currentSceneName = "Menu";
         ResetGame();
         SceneManager.LoadScene("Menu");
     }
 
-    public void LoadNextLevel(string sceneName)
+
+    public void LoadNextScene()
     {
-        ResetGame();
-        SceneManager.LoadScene(sceneName);
+        // Obtemos o índice da cena atual
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        // Calcula o índice da próxima cena
+        int nextSceneIndex = currentSceneIndex + 1;
+
+        // Verifica se há mais cenas no Build Settings
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            ResetGame();
+            SceneManager.LoadScene(nextSceneIndex); // Carrega a próxima cena
+        }
+        else
+        {
+            ResetGame();
+            Debug.Log("Você chegou na última cena! Reiniciando para a primeira...");
+            SceneManager.LoadScene(0); // Reinicia a primeira cena
+        }
     }
+
 
     public void Exit()
     {
@@ -178,6 +224,8 @@ public class GameController : MonoBehaviour
 
             if (_vitoriaPanel != null)
                 _vitoriaPanel.SetActive(true);
+            if (_textPausePanel != null)
+                _textPausePanel.SetActive(false);
         }
     }
 }
