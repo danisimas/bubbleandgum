@@ -16,4 +16,4 @@ Step into the vibrant world of **Bolhopolis** and join **Bubble** and **Gum** on
   - **A or Left Arrow**: Move left.  
   - **D or Right Arrow**: Move right.  
 
-Ready to dive into this bubbly adventure? Get creative, solve challenges, and explore a world of fun and teamwork! **Bubble & Gum** guarantees hours of entertainment for players of all ages.  
+Ready to dive into this bubbly adventure? Get creative, solve challenges, and explore a world of fun and teamwork!
